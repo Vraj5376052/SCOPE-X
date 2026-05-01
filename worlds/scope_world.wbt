@@ -3,16 +3,145 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/solids/protos/SolidBox.proto"
 
 WorldInfo {
+  info [
+    ""
+    ""
+  ]
 }
 Viewpoint {
-  orientation -0.3135756821459761 0.2563899287416836 0.9142945346038771 1.857729284965138
-  position 1.5537828009131778 -7.810839582573225 6.245087130295014
+  fieldOfView 1
+  orientation 0.5617882623416527 -0.577780218576104 -0.5920844258357892 4.235520088409548
+  position -0.3025105213476534 -0.8005030681473685 6.478361449939145
+}
+SolidBox {
+  translation 1.89 1.67 0.17
+  name "Intruder Target"
+  size 0.18 0.35 0.18
+  appearance PBRAppearance {
+    baseColor 1 0 0
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidBox {
+  translation 1.64 1.67 0.07
+  rotation 1 0 0 -1.5707953071795862
+  name "RZ 1 Marker"
+  size 1.7 0.02 1.6
+  appearance PBRAppearance {
+    baseColor 0.3 0 0
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/texturall.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.63 -1.68 0.0699967
+  rotation 1 0 0 -1.5707953071795862
+  name "RZ 2 bottom Marker"
+  size 1.7 0.02 1.6
+  appearance PBRAppearance {
+    baseColor 0.3 0 0
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/texturall.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 1.64 1.67 0.07
+  rotation 1 0 0 -1.5707953071795862
+  name "RZ 2 Marker Bottom Left"
+  size 1.7 0.02 1.6
+  appearance PBRAppearance {
+    baseColor 0.3 0 0
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/texturall.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.61 0.7 0.08
+  name "top left room divider bottom"
+  size 1.8 0.3 0.5
+}
+SolidBox {
+  translation 1.62 0.7 0.08
+  name "top right divider bottom RZ"
+  size 1.8 0.3 0.5
+}
+SolidBox {
+  translation 1.62 -0.73 0.08
+  name "bottom right divider top "
+  size 1.8 0.3 0.5
+}
+SolidBox {
+  translation -1.56 -0.73 0.08
+  name "bottom left divider top "
+  size 1.8 0.3 0.5
+}
+SolidBox {
+  translation 0.75 1.92 0.08
+  name "top  right divider side RZ(1)"
+  size 0.1 1.1 0.5
+}
+SolidBox {
+  translation 0.79 -1.9 0.08
+  name "bottom right divider side RZ2"
+  size 0.1 1.1 0.5
+}
+SolidBox {
+  translation -0.71 -1.9 0.08
+  name "bottom left divider side RZ 2"
+  size 0.1 1.1 0.5
+}
+SolidBox {
+  translation -0.71 1.9 0.08
+  name "Top Right divider side "
+  size 0.1 1.1 0.5
 }
 TexturedBackground {
+  texture "empty_office"
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  name "Floor"
+  floorSize 5 5
+  floorAppearance Parquetry {
+    type "light strip"
+    colorOverride 0.65098 0.65098 0.65098
+  }
+  wallHeight 0.4
+  wallAppearance BrushedAluminium {
+    colorOverride 0.2 0.2 0.2
+  }
+}
+DEF SCOPE_X_ROBOT E-puck {
+  controller "scope_controller"
 }
