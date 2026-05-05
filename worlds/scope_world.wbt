@@ -16,11 +16,11 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 1
-  orientation 0.5617882623416527 -0.577780218576104 -0.5920844258357892 4.235520088409548
-  position -0.3025105213476534 -0.8005030681473685 6.478361449939145
+  orientation -0.1817291181621858 0.3951894171505185 0.9004442526798802 0.9443509209783184
+  position -2.9946707977528906 -3.7890536392457403 2.220985512645141
 }
 SolidBox {
-  translation 1.89 1.67 0.17
+  translation 1.89 1.67 0.11
   name "Intruder Target"
   size 0.18 0.35 0.18
   appearance PBRAppearance {
@@ -33,23 +33,6 @@ SolidBox {
     roughness 0.5
     metalness 0
   }
-}
-SolidBox {
-  translation 1.64 1.67 0.07
-  rotation 1 0 0 -1.5707953071795862
-  name "RZ 1 Marker"
-  size 1.7 0.02 1.6
-  appearance PBRAppearance {
-    baseColor 0.3 0 0
-    baseColorMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/texturall.jpg"
-      ]
-    }
-    roughness 0.5
-    metalness 0
-  }
-  enableBoundingObject FALSE
 }
 SolidBox {
   translation -1.63 -1.68 0.0699967
@@ -69,9 +52,9 @@ SolidBox {
   enableBoundingObject FALSE
 }
 SolidBox {
-  translation 1.64 1.67 0.07
+  translation 1.64 1.65 0.0100025
   rotation 1 0 0 -1.5707953071795862
-  name "RZ 2 Marker Bottom Left"
+  name "RZ 2 bottom Marker(1)"
   size 1.7 0.02 1.6
   appearance PBRAppearance {
     baseColor 0.3 0 0
@@ -143,5 +126,17 @@ RectangleArena {
   }
 }
 DEF SCOPE_X_ROBOT E-puck {
+  hidden position_0_0 4533.644747706106
+  hidden position_0_1 4749.891078998037
+  hidden linearVelocity_0 -3.6321569218955575e-09 -1.4380785652671574e-08 2.1144543988308823e-08
+  hidden angularVelocity_0 -6.710205204440169e-07 -1.1627795302803836e-06 -1.5845163245709804e-06
+  hidden rotation_1 0 -1 0 2.8150440775558456
+  hidden linearVelocity_1 2.8819948447329874e-08 -2.638782884143697e-08 1.5894686072162846e-08
+  hidden angularVelocity_1 1.1208194100281323 2.7827589332847356 -0.0027244376622197783
+  hidden rotation_2 0 -1 0 0.19701322973007615
+  hidden linearVelocity_2 -4.766348875221006e-08 4.427753953997281e-09 2.573819957029705e-08
+  hidden angularVelocity_2 0.37360590229184476 0.9275854288582959 -0.0009091930148168215
+  translation 0.7056844794300547 -2.463254060505024 -2.1316515047751367e-05
+  rotation 0.005546341059740026 0.016083795117518482 0.9998552643435282 -0.38294560281231593
   controller "scope_controller"
 }

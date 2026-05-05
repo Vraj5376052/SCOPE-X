@@ -10,88 +10,75 @@ rightMotor = robot.getDevice("right wheel motor")
 leftMotor.setPosition(float("inf"))
 rightMotor.setPosition(float("inf"))
 
-leftMotor.setVelocity(0.0)
-rightMotor.setVelocity(0.0)
+# ---------- SPEEDS ----------
+FORWARD_SPEED = 4.0
+TURN_SPEED = 3.0
 
-# ---------- SETTINGS ----------
-FORWARD_SPEED = 5.5
-TURN_SPEED = 4.0
+# ---------- DISTANCE SENSORS ----------
+sensors = []
+for i in range(8):
+    sensor = robot.getDevice("ps" + str(i))
+    sensor.enable(timestep)
+    sensors.append(sensor)
+
+# ---------- PATROL TIMER ----------
+turn_timer = 0
 
 # ---------- MOVEMENT FUNCTIONS ----------
+def set_speed(left, right):
+    leftMotor.setVelocity(left)
+    rightMotor.setVelocity(right)
+
 def move_forward():
-    leftMotor.setVelocity(FORWARD_SPEED)
-    rightMotor.setVelocity(FORWARD_SPEED)
+    set_speed(FORWARD_SPEED, FORWARD_SPEED)
 
-def move_backward():
-    leftMotor.setVelocity(-FORWARD_SPEED)
-    rightMotor.setVelocity(-FORWARD_SPEED)
+def avoid_front():
+    set_speed(-TURN_SPEED, TURN_SPEED)
 
-def turn_left():
-    leftMotor.setVelocity(-TURN_SPEED)
-    rightMotor.setVelocity(TURN_SPEED)
+def avoid_left():
+    set_speed(TURN_SPEED, 1.0)
 
-def turn_right():
-    leftMotor.setVelocity(TURN_SPEED)
-    rightMotor.setVelocity(-TURN_SPEED)
+def avoid_right():
+    set_speed(1.0, TURN_SPEED)
 
-def stop_robot():
-    leftMotor.setVelocity(0.0)
-    rightMotor.setVelocity(0.0)
-
-# ---------- PATROL ROUTE ----------
-# This is a timed patrol route.
-# Tune duration values if robot over/under-shoots.
-
-patrol_steps = [
-    ("forward", 180, "Moving through central corridor"),
-    ("left", 62, "Turning toward top-left room"),
-    ("forward", 90, "Checking top-left room"),
-    ("right", 62, "Returning toward corridor"),
-    ("forward", 100, "Returning to centre"),
-
-    ("right", 62, "Turning toward top-right restricted zone"),
-    ("forward", 110, "Checking top-right restricted zone"),
-    ("left", 62, "Turning back to corridor"),
-    ("forward", 120, "Returning to centre"),
-
-    ("right", 125, "Turning toward bottom-left restricted zone"),
-    ("forward", 120, "Checking bottom-left restricted zone"),
-    ("left", 125, "Turning back to centre"),
-    ("forward", 100, "Returning to centre"),
-
-    ("left", 62, "Turning toward bottom-right room"),
-    ("forward", 100, "Checking bottom-right room"),
-    ("right", 62, "Returning to patrol loop"),
-
-    ("stop", 30, "Brief scan pause")
-]
-
-current_step = 0
-step_counter = 0
+def patrol_turn():
+    set_speed(3.0, 2.0)
 
 # ---------- MAIN LOOP ----------
 while robot.step(timestep) != -1:
-    action, duration, message = patrol_steps[current_step]
 
-    if step_counter == 0:
-        print("PATROL:", message, flush=True)
+    values = [sensor.getValue() for sensor in sensors]
 
-    if action == "forward":
-        move_forward()
-    elif action == "backward":
-        move_backward()
-    elif action == "left":
-        turn_left()
-    elif action == "right":
-        turn_right()
-    elif action == "stop":
-        stop_robot()
+    front = values[0] > 80 or values[7] > 80
+    left = values[5] > 80 or values[6] > 80
+    right = values[1] > 80 or values[2] > 80
 
-    step_counter += 1
+    # 1. Obstacle avoidance has priority
+    if front:
+        print("STATE: AVOID_FRONT", flush=True)
+        avoid_front()
 
-    if step_counter >= duration:
-        step_counter = 0
-        current_step += 1
+    elif left:
+        print("STATE: AVOID_LEFT", flush=True)
+        avoid_left()
 
-        if current_step >= len(patrol_steps):
-            current_step = 0
+    elif right:
+        print("STATE: AVOID_RIGHT", flush=True)
+        avoid_right()
+
+    # 2. Normal patrol
+    else:
+        turn_timer += timestep
+
+        if turn_timer < 7000:
+            print("STATE: PATROL_FORWARD", flush=True)
+            move_forward()
+
+        elif turn_timer < 7600:
+            print("STATE: PATROL_TURN", flush=True)
+            patrol_turn()
+
+        else:
+            turn_timer = 0
+            print("STATE: PATROL_RESET", flush=True)
+            move_forward()
