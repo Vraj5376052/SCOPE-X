@@ -52,6 +52,7 @@ while robot.step(timestep) != -1:
     front = values[0] > 80 or values[7] > 80
     left = values[5] > 80 or values[6] > 80
     right = values[1] > 80 or values[2] > 80
+    
 
     # 1. Obstacle avoidance has priority
     if front:
