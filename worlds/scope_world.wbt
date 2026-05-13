@@ -16,21 +16,16 @@ WorldInfo {
 }
 Viewpoint {
   fieldOfView 1
-  orientation -0.22170669132199725 0.6639701686721783 0.714135672079537 0.8747552033020246
-  position -3.984370313445827 -2.6504473972645126 2.4165481281623067
+  orientation -0.5250463264252415 0.5303875912924044 0.6655939889380013 1.9577235182246298
+  position 0.13261532664806536 -2.0742812516694453 8.036817875405132
 }
 SolidBox {
   translation 1.89 1.67 0.11
   name "Intruder Target"
   size 0.18 0.35 0.18
   appearance PBRAppearance {
-    baseColor 1 0 0
-    baseColorMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/textures/tagged_wall.jpg"
-      ]
-    }
-    roughness 0.5
+    baseColor 0 1 0
+    roughness 0.3
     metalness 0
   }
 }
@@ -40,13 +35,8 @@ SolidBox {
   name "RZ 2 bottom Marker"
   size 1.7 0.02 1.6
   appearance PBRAppearance {
-    baseColor 0.3 0 0
-    baseColorMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/texturall.jpg"
-      ]
-    }
-    roughness 0.5
+    baseColor 0.18 0.06 0.06
+    roughness 0.9
     metalness 0
   }
   enableBoundingObject FALSE
@@ -57,13 +47,8 @@ SolidBox {
   name "RZ 2 bottom Marker(1)"
   size 1.7 0.02 1.6
   appearance PBRAppearance {
-    baseColor 0.3 0 0
-    baseColorMap ImageTexture {
-      url [
-        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/default/worlds/texturall.jpg"
-      ]
-    }
-    roughness 0.5
+    baseColor 0.18 0.06 0.06
+    roughness 0.9
     metalness 0
   }
   enableBoundingObject FALSE
@@ -126,17 +111,17 @@ RectangleArena {
   }
 }
 DEF SCOPE_X_ROBOT E-puck {
-  hidden position_0_0 6967.1463543963255
-  hidden position_0_1 7291.117072773813
-  hidden linearVelocity_0 0.048698404450162866 0.011017868948138197 -6.102358275792498e-06
-  hidden angularVelocity_0 0.0009788778920783378 -0.006591535364548318 -0.3525118243291135
-  hidden rotation_1 0 1 0 5.377034041343661
-  hidden linearVelocity_1 0.05755600474993771 0.01302262003098309 3.083357764400006e-06
-  hidden angularVelocity_1 -0.6607005127697728 2.9195590118700996 -0.35758996067234355
-  hidden rotation_2 0 1 0 2.6221164454923382
-  hidden linearVelocity_2 0.039750071829277124 0.008991862404030824 -4.838275203179501e-07
-  hidden angularVelocity_2 -0.4397076048658383 1.9442756379178139 -0.3549449047820338
-  translation -0.9201931191227928 -1.9862995559888352 -6.569623773372557e-05
-  rotation -0.0017598250459322047 0.00967847002905373 0.9999516139462471 0.21559733883752932
+  hidden position_0_0 200152.9623749331
+  hidden position_0_1 200139.62454347184
+  hidden linearVelocity_0 -0.069080057015598 0.010932903364628299 2.8511679024252948e-05
+  hidden angularVelocity_0 0.0008266339044363474 0.002460124317108871 0.00017508285239137592
+  hidden rotation_1 0 -1 0 4.1887705798137205
+  hidden linearVelocity_1 -0.06908701876026764 0.010946228355355515 -2.051328218711391e-06
+  hidden angularVelocity_1 -0.5470980047813797 -3.454385079846996 -0.0006486978911094785
+  hidden rotation_2 0 -1 0 4.9602314267037
+  hidden linearVelocity_2 -0.06908537409593293 0.01091711905962427 -3.6974372290985394e-06
+  hidden angularVelocity_2 -0.5480468283104529 -3.4542346035376736 4.245591617583871e-05
+  translation 1.31811732424096 -1.7164462328153165 -6.840720695432644e-05
+  rotation 0.0005106720545061106 -4.3300171129943395e-05 -0.9999998686695654 -2.9843250852695307
   controller "scope_controller"
 }
