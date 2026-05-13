@@ -1,22 +1,5 @@
-"""
-SCOPE-X — Security Robot Controller  v4
-=========================================
-Patrol route: perimeter-hugging loop through all free zones,
-peeking at each restricted doorway. Matches the red line drawn on map.
+# SCOPE-X — Security Robot Controller  v4
 
-Route (continuous loop):
-  BR free room  → right wall hug → up right corridor
-  → TR doorway PEEK (alarm zone)
-  → across top corridor → TL free room perimeter sweep
-  → down left corridor → BL doorway PEEK (alarm zone)
-  → down bottom corridor → BR free room perimeter sweep → loop
-
-No GPS/Compass needed. Timer-based steps.
-Each step: (left_spd, right_spd, duration_ms, is_restricted_peek)
-
-Tuning tip: 700ms ≈ 90° turn at TURN_SPD=2.5, PATROL_SPD=3.5
-            Adjust durations if robot drifts off route.
-"""
 
 from controller import Robot
 
