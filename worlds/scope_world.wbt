@@ -1,0 +1,424 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/solids/protos/SolidBox.proto"
+
+WorldInfo {
+  info [
+    "SCOPE-X — Office security patrol simulation"
+    "4-room office layout: Open Office (TL), Server Room/RZ1 (TR),"
+    "Records Vault/RZ2 (BL), Copy Room (BR), central corridor."
+  ]
+}
+Viewpoint {
+  fieldOfView 1
+  orientation 0.6193701027955094 -0.5426057585682726 -0.5674148980522362 4.06422164742413
+  position -0.038196930019000194 0.24964211837730746 3.5428737452728774
+}
+TexturedBackground {
+  texture "empty_office"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  name "Office Floor"
+  floorSize 3 3
+  floorAppearance PBRAppearance {
+    baseColor 0.82 0.82 0.8
+    roughness 0.85
+    metalness 0
+  }
+  wallHeight 0.3
+  wallAppearance PBRAppearance {
+    baseColor 0.88 0.88 0.86
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.95 0.95 0.001
+  name "RZ1 Server Room Floor"
+  size 0.9 0.9 0.002
+  appearance PBRAppearance {
+    baseColor 0.95 0.6 0
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.95 -0.95 0.001
+  name "RZ2 Records Vault Floor"
+  size 0.9 0.9 0.002
+  appearance PBRAppearance {
+    baseColor 0.95 0.6 0
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+DEF INTRUDER SolidBox {
+  translation 0.95 0.95 0.06
+  name "Intruder"
+  size 0.12 0.12 0.12
+  appearance PBRAppearance {
+    baseColor 1 0 0
+    roughness 0.4
+    metalness 0
+  }
+}
+SolidBox {
+  translation -0.95 0.42 0.08
+  name "wall top-left"
+  size 1.1 0.1 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.95 0.42 0.08
+  name "wall top-right"
+  size 1.1 0.1 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation -0.95 -0.42 0.08
+  name "wall bottom-left"
+  size 1.1 0.1 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.95 -0.42 0.08
+  name "wall bottom-right"
+  size 1.1 0.1 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.45 1.07 0.08
+  name "wall vert top-right"
+  size 0.06 0.79 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation -0.45 1.07 0.08
+  name "wall vert top-left"
+  size 0.06 0.79 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation 0.45 -1.07 0.08
+  name "wall vert bottom-right"
+  size 0.06 0.79 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation -0.45 -1.07 0.08
+  name "wall vert bottom-left"
+  size 0.06 0.79 0.3
+  appearance PBRAppearance {
+    baseColor 0.8 0.8 0.78
+    roughness 0.7
+    metalness 0
+  }
+}
+SolidBox {
+  translation -0.95 1.38 0.035
+  name "office desk"
+  size 0.65 0.22 0.07
+  appearance PBRAppearance {
+    baseColor 0.52 0.34 0.14
+    roughness 0.8
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.95 1.37 0.105
+  name "monitor"
+  size 0.22 0.04 0.14
+  appearance PBRAppearance {
+    baseColor 0.18 0.18 0.2
+    roughness 0.5
+    metalness 0.3
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.95 1.32 0.073
+  name "keyboard"
+  size 0.18 0.07 0.01
+  appearance PBRAppearance {
+    baseColor 0.7 0.7 0.72
+    roughness 0.6
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.95 1.22 0.025
+  name "office chair"
+  size 0.18 0.18 0.05
+  appearance PBRAppearance {
+    baseColor 0.25 0.25 0.28
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.38 1.1 0.08
+  name "filing cabinet"
+  size 0.16 0.28 0.16
+  appearance PBRAppearance {
+    baseColor 0.4 0.5 0.45
+    roughness 0.6
+    metalness 0.2
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.38 1.38 0.07
+  name "plant TL"
+  size 0.12 0.12 0.14
+  appearance PBRAppearance {
+    baseColor 0.18 0.48 0.18
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 0.65 1.36 0.12
+  name "server rack A"
+  size 0.2 0.22 0.24
+  appearance PBRAppearance {
+    baseColor 0.1 0.1 0.12
+    roughness 0.4
+    metalness 0.6
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 0.65 1.26 0.18
+  name "rack lights A"
+  size 0.18 0.02 0.02
+  appearance PBRAppearance {
+    baseColor 0.2 0.4 0.9
+    roughness 0.2
+    metalness 0.8
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 1.28 1.36 0.12
+  name "server rack B"
+  size 0.2 0.22 0.24
+  appearance PBRAppearance {
+    baseColor 0.1 0.1 0.12
+    roughness 0.4
+    metalness 0.6
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 1.28 1.26 0.18
+  name "rack lights B"
+  size 0.18 0.02 0.02
+  appearance PBRAppearance {
+    baseColor 0.2 0.4 0.9
+    roughness 0.2
+    metalness 0.8
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 0.95 1.28 0.003
+  name "cable tray"
+  size 0.8 0.06 0.006
+  appearance PBRAppearance {
+    baseColor 0.15 0.15 0.15
+    roughness 0.8
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.65 -1.37 0.08
+  name "vault cabinet A"
+  size 0.2 0.18 0.16
+  appearance PBRAppearance {
+    baseColor 0.38 0.48 0.44
+    roughness 0.6
+    metalness 0.2
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.95 -1.37 0.08
+  name "vault cabinet B"
+  size 0.2 0.18 0.16
+  appearance PBRAppearance {
+    baseColor 0.38 0.48 0.44
+    roughness 0.6
+    metalness 0.2
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.25 -1.37 0.08
+  name "vault cabinet C"
+  size 0.2 0.18 0.16
+  appearance PBRAppearance {
+    baseColor 0.38 0.48 0.44
+    roughness 0.6
+    metalness 0.2
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.37 -1.37 0.065
+  name "safe"
+  size 0.18 0.18 0.13
+  appearance PBRAppearance {
+    baseColor 0.2 0.22 0.24
+    roughness 0.4
+    metalness 0.7
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 1.28 -1.37 0.065
+  name "printer"
+  size 0.3 0.26 0.13
+  appearance PBRAppearance {
+    baseColor 0.82 0.82 0.82
+    roughness 0.6
+    metalness 0.1
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 0.7 -1.37 0.035
+  name "break table"
+  size 0.32 0.22 0.07
+  appearance PBRAppearance {
+    baseColor 0.52 0.34 0.14
+    roughness 0.8
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 0.7 -1.37 0.095
+  name "coffee mug"
+  size 0.05 0.05 0.08
+  appearance PBRAppearance {
+    baseColor 0.3 0.18 0.1
+    roughness 0.7
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 0.7 -1.22 0.025
+  name "break chair"
+  size 0.16 0.16 0.05
+  appearance PBRAppearance {
+    baseColor 0.25 0.25 0.28
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -1.35 0.1 0.07
+  name "plant corridor-left"
+  size 0.11 0.11 0.14
+  appearance PBRAppearance {
+    baseColor 0.18 0.5 0.18
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation 1.35 -0.1 0.07
+  name "plant corridor-right"
+  size 0.11 0.11 0.14
+  appearance PBRAppearance {
+    baseColor 0.18 0.5 0.18
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.3 0 0.09
+  name "water cooler"
+  size 0.11 0.11 0.18
+  appearance PBRAppearance {
+    baseColor 0.85 0.9 0.95
+    roughness 0.4
+    metalness 0.2
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.3 0 0.195
+  name "water bottle"
+  size 0.08 0.08 0.05
+  appearance PBRAppearance {
+    baseColor 0.55 0.75 0.9
+    roughness 0.3
+    metalness 0.1
+  }
+  enableBoundingObject FALSE
+}
+DEF SCOPE_X_ROBOT E-puck {
+  rotation 0 0 1 1.5708
+  controller "scope_controller"
+  battery [
+    0
+  ]
+  camera_fieldOfView 1
+  camera_width 64
+  camera_height 48
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+      name "iu"
+    }
+    Speaker {
+    }
+  ]
+}
