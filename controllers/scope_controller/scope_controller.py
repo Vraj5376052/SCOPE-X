@@ -140,7 +140,7 @@ WAYPOINTS = [
     (0.00,  0.52, "corridor"),
 
     # ========================================================
-    # CENTRAL / GREEN BOX CORRIDOR PATROL
+    # CENTRAL / GREEN BOX CORRIDOR PATROL 
     # ========================================================
     (0.00,  0.00, "corridor"),
 
