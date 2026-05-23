@@ -51,10 +51,23 @@ SolidBox {
 }
 SolidBox {
   translation -0.95 -0.95 0.001
-  name "RZ2 Records Vault Floor"
-  size 0.9 0.9 0.002
+  rotation 0 0 1 0.7854
+  name "BL No-Entry X mark arm 1"
+  size 0.8 0.07 0.002
   appearance PBRAppearance {
-    baseColor 0.95 0.6 0
+    baseColor 1 0 0
+    roughness 0.9
+    metalness 0
+  }
+  enableBoundingObject FALSE
+}
+SolidBox {
+  translation -0.95 -0.95 0.001
+  rotation 0 0 1 -0.7854
+  name "BL No-Entry X mark arm 2"
+  size 0.8 0.07 0.002
+  appearance PBRAppearance {
+    baseColor 1 0 0
     roughness 0.9
     metalness 0
   }
