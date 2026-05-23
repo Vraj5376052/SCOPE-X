@@ -97,8 +97,16 @@ This drives the entire mission chain: LOW is ignored during patrol, MEDIUM/HIGH 
 
 ---
 
-## Submission Checklist
+## Technical Requirements
 
-- [x] Source code — this repository
-- [ ] 4-page report
-- [ ] 5-minute video demo
+| Requirement | Implementation |
+|---|---|
+| ≥ 2 sensor inputs | 8× IR proximity sensors + RGB camera |
+| ≥ 2 actuator outputs | Differential drive motors + LED ring |
+| FSM with ≥ 4 states | 10-state prioritised FSM (`class FSM`) |
+| Multi-condition decision logic | Threat transitions require both camera ratio AND GPS zone to match |
+| Safety / fail-safe | EMERGENCY_STOP → RECOVERY chain; stall watchdog; obstacle avoidance overrides patrol |
+| Autonomous navigation | GPS waypoint lawnmower + InertialUnit heading control |
+| Obstacle avoidance | Reactive 3-phase side-step with heading restoration |
+| Perception-driven decisions | Entire mission chain gated by camera output |
+| Advanced component | Context-aware threat classification — same object, different severity based on spatial zone |
